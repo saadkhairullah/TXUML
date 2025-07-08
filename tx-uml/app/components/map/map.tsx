@@ -30,7 +30,6 @@ export default function Map() {
     map.addControl(new mapboxgl.NavigationControl());
     map.scrollZoom.enable();
 
-    const markers: mapboxgl.Marker[] = [];
  mapRef.current.on('load', () => {
           map.loadImage(
         'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
@@ -41,6 +40,14 @@ export default function Map() {
         type: 'geojson',
         data: '/mineMarkers.json' // Path relative to public folder
       });
+      map.addSource('mine-point-locality', {
+        type: 'geojson',
+        data: '/mineLoc.json' // Path relative to public folder
+      });
+      map.addSource('mine-point-zone', {
+        type: 'geojson',
+        data: '/mineLocZone.json' // Path relative to public folder
+      });
 
       map.addLayer({
         id: 'mine-point-symbol',
@@ -50,6 +57,26 @@ export default function Map() {
       'icon-image': 'custom-marker', 
       'icon-size': 1
   }
+      });
+
+      // Add a transparent polygon layer for mine-point-locality
+      map.addLayer({
+        id: 'mine-polygon',
+        type: 'fill',
+        source: 'mine-point-locality',
+        paint: {
+          'fill-color': '#0000ff', // Blue for locality
+          'fill-opacity': 0.2      // Transparent fill
+        }
+      });
+      map.addLayer({
+        id: 'mine-polygon-zone',
+        type: 'fill',
+        source: 'mine-point-zone',
+        paint: {
+          'fill-color': '#ff0000', // Red for zones
+          'fill-opacity': 0.5      // Transparent fill
+        }
       });
     });
     });
