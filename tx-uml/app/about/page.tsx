@@ -4,7 +4,7 @@ import React from 'react'
 const aboutpage = () => {
   return (
     <div> 
-      <h1 style={{textAlign: "center", color: "white"}}>About Us</h1>
+      <h1 style={{textAlign: "center", color: "black"}}>About Us</h1>
       <img src="testimage.png" />
     </div>
   )
