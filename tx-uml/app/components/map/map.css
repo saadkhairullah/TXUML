@@ -4,3 +4,8 @@ display: flex;
 overflow: hidden;
 
 }
+
+.mapboxgl-popup {
+  all: unset;
+  position: absolute;
+}

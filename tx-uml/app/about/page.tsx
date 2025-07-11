@@ -5,7 +5,7 @@ import Image from 'next/image'
 const aboutpage = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center',  alignItems: 'center', gap: '3rem' }}>
-      <h1 style={{fontSize: '64px', textAlign: "center", color: "white"}}>About TXUML</h1>
+      <h1 style={{fontSize: '64px', textAlign: "center", color: "black"}}>About TXUML</h1>
       <div style={{ display: 'flex', gap: '2rem' }}>
         <Image
           src={"/images/tunnel1.png"}
