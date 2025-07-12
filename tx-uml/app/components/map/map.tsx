@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css'
+import Legend from './legend';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidHh1bWwiLCJhIjoiY21jcG04ZXY5MDdtdjJpcG02OWNnYmRxNSJ9.AqdDCt8d6tkB1o2YxLK89w';
@@ -16,6 +18,7 @@ export default function Map() {
    
     if (!mapContainerRef.current) return;
 
+    // intializing the map centered and bounded on texas
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v12?optimize=true',
@@ -24,9 +27,8 @@ export default function Map() {
       zoom: 6.7
     });
 
-    mapRef.current = map;
+    mapRef.current = map; // shortcut for mapRef.current, use map instead
 
-    map.addControl(new mapboxgl.NavigationControl());
     map.scrollZoom.enable();
 
  mapRef.current.on('load', () => {
@@ -35,7 +37,10 @@ export default function Map() {
         (error, image) => {
           if (error) throw error;
           if (image)
-          map.addImage('custom-marker', image);
+
+      map.addImage('custom-marker', image); // add the image we will use for mine markers
+
+      // .addSource adds all of our json sources so that they can be later added as layers
       map.addSource('mine-point', {
         type: 'geojson',
         data: '/mineMarkers.json' // Path relative to public folder
@@ -51,43 +56,66 @@ export default function Map() {
 
      
 
-      // Add a transparent polygon layer for mine-point-locality
+      // Add a polygon layer for mine-point-locality
       map.addLayer({
         id: 'mine-polygon',
         type: 'fill',
         source: 'mine-point-locality',
         paint: {
           'fill-color': '#0000ff', // Blue for locality
-          'fill-opacity': 0.2      // Transparent fill
+          'fill-opacity': 0.2    
         }
       });
+      // Add a polygon layer for mine-point-zone
       map.addLayer({
         id: 'mine-polygon-zone',
         type: 'fill',
         source: 'mine-point-zone',
         paint: {
           'fill-color': '#ff0000', // Red for zones
-          'fill-opacity': 0.5      // Transparent fill
+          'fill-opacity': 0.5    
         }
       });
+      // add the symbols for the mine loications
        map.addLayer({
         id: 'mine-point-symbol',
         type: 'symbol',
         source: 'mine-point',
         layout: {
-      'icon-image': 'custom-marker', 
+      'icon-image': 'custom-marker', // image earlier added in map.on(load) function
       'icon-size': 1
   }
       });
+
+      //onclick function that displays popup when you click on a "mine-point-symbol"
       map.on('click', 'mine-point-symbol', (e) => {
    const feature = e.features?.[0];
   if (!feature) return;
 
   const mineName = feature.properties.Mine_Name || 'Unknown';
+  const siteNumber = feature.properties.SITE_NUMBE || 'N/A';
+  const siteID = feature.properties.SITE_ID || 'N/A';
+  const mineType = feature.properties.MineType || 'Unknown';
+  const coalType = feature.properties.CoalType || 'Unknown';
+  const period = feature.properties.Period || 'Unknown';
+  const source = feature.properties.InfoSource|| 'Unknown';
+
+  // this block of code is what appears in the popups
+    const popupHtml = `
+    <div>
+      <strong>Mine Name:</strong> ${mineName}<br/>
+      <strong>Site Number:</strong> ${siteNumber}<br/>
+      <strong>Site ID:</strong> ${siteID}<br/>
+      <strong>Mine Type:</strong> ${mineType}<br/>
+      <strong>Coal Type:</strong> ${coalType}<br/>
+      <strong>Period:</strong> ${period}<br/>
+      <strong>Source:</strong> ${source}
+    </div>
+  `;
 
   new mapboxgl.Popup()
     .setLngLat(feature.geometry.coordinates)
-    .setHTML(`<strong>${mineName}</strong>`)
+    .setHTML(popupHtml)
     .addTo(map);
 });
 
@@ -109,5 +137,7 @@ map.on('mouseleave', 'mine-point-symbol', () => {
     };
   }, []);
   
-  return <div className='map-container' ref={mapContainerRef} />;
+  return  <div className='map-container' ref={mapContainerRef} />;
+ 
+  
 }
