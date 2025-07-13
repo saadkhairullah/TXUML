@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css'
-import Legend from './legend';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidHh1bWwiLCJhIjoiY21jcG04ZXY5MDdtdjJpcG02OWNnYmRxNSJ9.AqdDCt8d6tkB1o2YxLK89w';
@@ -89,16 +88,16 @@ export default function Map() {
 
       //onclick function that displays popup when you click on a "mine-point-symbol"
       map.on('click', 'mine-point-symbol', (e) => {
-   const feature = e.features?.[0];
+   const feature = e.features?.[0]
   if (!feature) return;
 
-  const mineName = feature.properties.Mine_Name || 'Unknown';
-  const siteNumber = feature.properties.SITE_NUMBE || 'N/A';
-  const siteID = feature.properties.SITE_ID || 'N/A';
-  const mineType = feature.properties.MineType || 'Unknown';
-  const coalType = feature.properties.CoalType || 'Unknown';
-  const period = feature.properties.Period || 'Unknown';
-  const source = feature.properties.InfoSource|| 'Unknown';
+  const mineName = feature.properties?.Mine_Name || 'Unknown';
+  const siteNumber = feature.properties?.SITE_NUMBE || 'N/A';
+  const siteID = feature.properties?.SITE_ID || 'N/A';
+  const mineType = feature.properties?.MineType || 'Unknown';
+  const coalType = feature.properties?.CoalType || 'Unknown';
+  const period = feature.properties?.Period || 'Unknown';
+  const source = feature.properties?.InfoSource|| 'Unknown';
 
   // this block of code is what appears in the popups
     const popupHtml = `
@@ -112,11 +111,16 @@ export default function Map() {
       <strong>Source:</strong> ${source}
     </div>
   `;
-
+ if (feature.geometry.type === 'Point') {
+  const coords = feature.geometry.coordinates as [number, number];
+  
   new mapboxgl.Popup()
-    .setLngLat(feature.geometry.coordinates)
+    .setLngLat(coords)
     .setHTML(popupHtml)
     .addTo(map);
+} else {
+  console.warn('Feature geometry is not a Point.');
+}
 });
 
 // Change cursor to pointer
