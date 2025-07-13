@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "test": "jest",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "jest": "^30.0.4",
     "mapbox-gl": "^3.13.0",
     "mongoose": "^8.16.2",
     "next": "15.3.4",
