@@ -25,7 +25,10 @@ jobs:
         cache: 'npm'
 
     - run: npm ci
+    working-directory: ./tx-uml
 
     - run: npm run build 
+    working-directory: ./tx-uml
 
     - run: npm test
+    working-directory: ./tx-uml
