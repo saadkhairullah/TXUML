@@ -5,11 +5,16 @@ import Hero from './Hero';
 // import Footer from './Footer';
 import styles from './page.module.css';
 
+
 const landingpage = () => {
   return (
     <div className={styles.wrapper}>
-      <Header />
-      <Hero />
+      <div className={styles.fadeIn}>
+        <Header />
+      </div>  
+      <div className={styles.fadeIn}>
+        <Hero />
+      </div> 
 
     </div>
   )

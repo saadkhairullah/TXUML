@@ -4,3 +4,19 @@
   display: flex;
   flex-direction: column;
 }
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
