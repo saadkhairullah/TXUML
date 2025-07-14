@@ -1,0 +1,23 @@
+.headerBox {
+  background-color: #a8acb5;
+  color: black;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 1rem auto;
+}
+
+.textBox {
+  background-color: #a8acb5;
+  color: black;
+  font-size: 1.25rem;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 2rem;
+  max-width: 600px;
+  text-align: center;
+  line-height: 1.4;  
+  font-family: 'Poppins', sans-serif;
+}
