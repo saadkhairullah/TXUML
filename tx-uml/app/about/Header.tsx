@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Header.module.css';
 
 const Header: React.FC = () => (
-  <header style={{ padding: '1rem', backgroundColor: '#282c34', color: 'white' }}>
-    <h1>TXUML</h1>
+  <header className={styles.header}>
+    <h1 className={styles.title}>TXUML</h1>
   </header>
 );
 

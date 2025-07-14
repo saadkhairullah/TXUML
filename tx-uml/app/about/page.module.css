@@ -1,0 +1,6 @@
+.wrapper {
+  background: linear-gradient(45deg, #4b5b69, #bdbed4); /* peach-pink gradient */
+  min-height: 175vh;
+  display: flex;
+  flex-direction: column;
+}
