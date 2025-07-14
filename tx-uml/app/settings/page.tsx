@@ -4,14 +4,19 @@ const Settings = () => {
   return (
     <div
       style={{
-        backgroundColor: 'hsla(38, 36%, 96%, 1.00)',  // light background color
-        minHeight: '100vh',          // full height of the screen
+        backgroundImage: 'url("images/Ground.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
         padding: '2rem',
-        fontFamily: 'Arial, sans-serif'
+        fontFamily: 'Arial, sans-serif',
+        backdropFilter: 'blur(4px)',
+        backgroundColor: 'rgba(255, 255, 255, 0.85)',
       }}
     >
-      <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-        <h2>User Settings Page </h2>
+      <div style={{ maxWidth: '500px', margin: '0 auto', backgroundColor: 'white', padding: '2rem', borderRadius: '8px' }}>
+        <h2>User Settings Page</h2>
         <form>
           <div style={{ marginBottom: '1rem' }}>
             <label htmlFor="firstName" style={{ display: 'block', marginBottom: '0.5rem' }}>
@@ -21,7 +26,7 @@ const Settings = () => {
               type="text"
               id="firstName"
               name="firstName"
-              style={{ width: '100%', padding: '0.5rem'}}
+              style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
 
