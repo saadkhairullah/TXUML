@@ -1,6 +1,24 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 const Settings = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [dob, setDob] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    console.log('Submitted:', { firstName, lastName, dob, email });
+
+    // Clear all fields filled in the form otherwise I will see it in the Terminal
+    setFirstName('');
+    setLastName('');
+    setDob('');
+    setEmail('');
+  };
+
   return (
     <div
       style={{
@@ -15,9 +33,17 @@ const Settings = () => {
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
       }}
     >
-      <div style={{ maxWidth: '500px', margin: '0 auto', backgroundColor: 'white', padding: '2rem', borderRadius: '8px' }}>
+      <div
+        style={{
+          maxWidth: '500px',
+          margin: '0 auto',
+          backgroundColor: 'white',
+          padding: '2rem',
+          borderRadius: '8px',
+        }}
+      >
         <h2>User Settings Page</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '1rem' }}>
             <label htmlFor="firstName" style={{ display: 'block', marginBottom: '0.5rem' }}>
               First Name:
@@ -26,6 +52,8 @@ const Settings = () => {
               type="text"
               id="firstName"
               name="firstName"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
@@ -38,6 +66,8 @@ const Settings = () => {
               type="text"
               id="lastName"
               name="lastName"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
               style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
@@ -50,6 +80,8 @@ const Settings = () => {
               type="date"
               id="dob"
               name="dob"
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
               style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
@@ -62,6 +94,8 @@ const Settings = () => {
               type="email"
               id="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
