@@ -2,7 +2,7 @@
 .header {
   -webkit-text-stroke: 2px rgb(0, 0, 0);
   padding: 1rem;
-  background-color: #282c34;
+  background: linear-gradient(360deg, #431469, #561592);
   color: rgb(228, 228, 228);
   text-align: center;
   font-weight: bold;
