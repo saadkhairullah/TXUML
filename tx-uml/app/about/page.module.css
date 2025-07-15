@@ -1,23 +1,22 @@
-.headerBox {
-  background-color: #a8acb5;
-  color: black;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  text-align: center;
-  display: inline-block;
-  margin: 1rem auto;
+.wrapper {
+  background: linear-gradient(360deg, #0c1d33, #8abffc);
+  min-height: 175vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.textBox {
-  background-color: #a8acb5;
-  color: black;
-  font-size: 1.25rem;
-  padding: 2rem 3rem;
-  border-radius: 12px;
-  display: inline-block;
-  margin-top: 2rem;
-  max-width: 600px;
-  text-align: center;
-  line-height: 1.4;  
-  font-family: 'Poppins', sans-serif;
+.fadeIn {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

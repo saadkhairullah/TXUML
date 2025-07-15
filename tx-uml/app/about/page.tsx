@@ -1,37 +1,27 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
+import Header from './Header';
+import Hero from './Hero';
+// import Footer from './Footer';
 import styles from './page.module.css';
+import Buttons from './Buttons';
 
-// this is where the about page frontend goes
-const aboutpage = () => {
+
+const landingpage = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center',  alignItems: 'center', gap: '3rem' }}>
-      <h1 className={styles.headerBox}>About TXUML</h1>
-      <div style={{ display: 'flex', gap: '2rem' }}>
-        <Image
-          src={"/images/tunnel1.png"}
-          alt="Underground Mine Tunnel"
-          width={240}
-          height={320}
-          style={{ borderRadius: '4px' }}
-        />
-        <Image
-          src={"/images/minemap.png"}
-          alt="Texas Underground Mine Map"
-          width={320}
-          height={320}
-          style={{ borderRadius: '4px' }}
-        />
-      </div>
-      <div>
-        <p className={styles.textBox}>
-          TXUML is an interactive map that highlights the 
-          locations of all underground abandoned or active 
-          coal mines in the state of Texas since the late 1800s.
-        </p>
-      </div>
+    <div className={styles.wrapper}>
+      <div className={styles.fadeIn}>
+        <Header />
+      </div>  
+      <div className={styles.fadeIn}>
+        <Hero />
+      </div> 
+      <div className={styles.fadeIn}>
+        <Buttons />
+      </div> 
+
     </div>
   )
 }
 
-export default aboutpage
+export default landingpage;
