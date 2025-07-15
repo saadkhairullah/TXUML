@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap'); /* or any font you like */
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif; /* only affects buttons */
+  text-decoration: none;
+  background-color: #0070f3;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  background-color: #005bb5;
+}

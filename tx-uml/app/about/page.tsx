@@ -4,6 +4,7 @@ import Header from './Header';
 import Hero from './Hero';
 // import Footer from './Footer';
 import styles from './page.module.css';
+import Buttons from './Buttons';
 
 
 const landingpage = () => {
@@ -14,6 +15,9 @@ const landingpage = () => {
       </div>  
       <div className={styles.fadeIn}>
         <Hero />
+      </div> 
+      <div className={styles.fadeIn}>
+        <Buttons />
       </div> 
 
     </div>
