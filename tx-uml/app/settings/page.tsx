@@ -19,6 +19,7 @@ const Settings = () => {
     setEmail('');
   };
 
+  
   return (
     <div
       style={{
