@@ -31,9 +31,10 @@
 
 .heroSection {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 3rem 2rem;
+  padding: 3rem 2.5rem;
+  margin-top: 4rem;
   gap: 2rem;
   flex-wrap: wrap;
   flex-direction: row;
