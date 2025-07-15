@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap'); /* or any font you like */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 .buttonContainer {
   display: flex;
@@ -10,9 +10,9 @@
 
 .button {
   display: inline-block;
-  font-family: 'Orbitron', sans-serif; /* only affects buttons */
+  font-family: 'Lato', sans-serif;
   text-decoration: none;
-  background-color: #0070f3;
+  background-color: #022247;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 10px;
