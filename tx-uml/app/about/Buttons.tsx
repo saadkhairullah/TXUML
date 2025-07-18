@@ -3,10 +3,10 @@ import styles from './Buttons.module.css';
 
 const Buttons: React.FC = () => {
   const buttons = [
-    { label: 'Button1', href: 'https://github.com', external: true },
-    { label: 'Button2', href: 'https://github.com', external: true },
-    { label: 'Button3', href: 'https://github.com', external: true },
-    { label: 'Button4', href: 'https://github.com', external: true },
+    { label: 'mapPage-button', href: './mapPage' },
+    { label: 'settings-button', href: './settings'},
+    { label: 'login-button', href: './login' },
+    { label: 'Button4', href: './mapPage' },
   ];
 
   return (
