@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
-import introBg from "./assets/introBg.mp4"; 
+// Use a public URL for the video source instead of importing the mp4 file
+// import introBg from "./assets/introBg.mp4"; 
 
 
 
@@ -12,7 +13,7 @@ const AboutPage = () => {
       <div>
         <nav className="navbar">
           <a href="" className="logo-name">
-            <img src="/images/trace.svg" />
+            <img src={/images/trace.svg} />
             <h3>TXUML</h3>
           </a>
           <div className="nav-links">
@@ -28,7 +29,8 @@ const AboutPage = () => {
         </nav>
       </div>
       <div>
-        <video src={introBg}controls autoPlay muted loop />
+        <video src="/videos/introBg.mp4" controls autoPlay muted loop />
+        {/* <video src={introBg}controls autoPlay muted loop /> */}
       
         <h1>Unearth the Data. Build with Confidence.</h1>
         <p>
