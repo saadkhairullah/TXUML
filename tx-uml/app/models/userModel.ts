@@ -1,6 +1,6 @@
 // create user model here
 import mongoose from "mongoose";
-import { unique } from "next/dist/build/utils";
+// import { unique } from "next/dist/build/utils";
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
