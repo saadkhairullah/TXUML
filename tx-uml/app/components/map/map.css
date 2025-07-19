@@ -1,11 +1,15 @@
 .map-container{
 height: 100%;
 display: flex;
-/* overflow: hidden; */
+/* overflow: hidden;
+position: absolute; */
 
 }
-
-/* .mapboxgl-popup {
-  all: unset;
-  position: absolute;
-} */
+ .mapboxgl-popup {
+        max-width: 400px;
+        font:
+            12px/20px 'Helvetica Neue',
+            Arial,
+            Helvetica,
+            sans-serif;
+    }
