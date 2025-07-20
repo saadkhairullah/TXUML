@@ -4,8 +4,8 @@ import './style.css'
 const login = () => {
     //  pages"login page lives inside the two divs
   return (
-     <>
- <h1>Welcome to <span className="logo">MineApp</span></h1>
+     <div className="login-container">
+ <h1 className="form-header">Welcome to <span className="logo">MineApp</span></h1>
     <form action="/submit" className="join-form">
       <h2><span>Log in </span>to your account</h2>
       <div className="input-group">
@@ -20,8 +20,8 @@ const login = () => {
         <button type="submit" className="btn">Sign in</button>
       </div>
       <a href="/signup" className="register">New to ? Create your account.</a>
-    </form>  
-    </>
+    </form>
+    </div>
 
   )
 }

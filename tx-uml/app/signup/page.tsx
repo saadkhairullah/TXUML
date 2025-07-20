@@ -1,10 +1,11 @@
+'use client';
 import React from 'react';
 import './style.css';
 
-const signup = () => {
+const Signup = () => {
   return (
-    <>
-      <h1>
+    <div className="login-container"> {/* Match login page layout */}
+      <h1 className="form-header">
         Welcome to <span className="logo">MineApp</span>
       </h1>
       <form action="/submit" className="join-form">
@@ -26,10 +27,10 @@ const signup = () => {
         <div className="input-group">
           <button type="submit" className="btn">Join now</button>
         </div>
-        <a href="#" className="register">Already have an account? Sign in.</a>
+        <a href="/login" className="register">Already have an account? Sign in.</a>
       </form>
-    </>
+    </div>
   );
 };
 
-export default signup;
+export default Signup;
