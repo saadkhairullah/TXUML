@@ -1,6 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
 
 * {
   margin: 0;
@@ -13,10 +13,10 @@
 body {
     --text-color: #221f1f;
     --text-color2: #696565;
-    --primary-color: rgb(58, 61, 252);
+    --primary-color: #3a3dfc;
     --secondary-color: #ffffe9;
     font-size: 16px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Blinker", sans-serif;
     line-height: 1.5;
     
 } 
