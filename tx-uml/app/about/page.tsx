@@ -50,10 +50,10 @@ const AboutPage = () => {
               since the late 1800s.
             </p>
             <div className="image-container">
-          <img src={Image.src} alt="TXUML Logo" />
+              <img src={Image.src} alt="TXUML Logo" />
+            </div>
           </div>
-          </div>
-        <h2>Frequently Asked Questions</h2>
+          <h2>Frequently Asked Questions</h2>
         </div>
       </div>
     </div>

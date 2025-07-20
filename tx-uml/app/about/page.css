@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .navbar img {
   height: 75px;
@@ -42,26 +43,36 @@
   padding: 10px 35px;
   border-radius: 50px;
   margin: 0 10px;
+  transition: all 0.3s ease-in-out;
+}
+.nav-links a:nth-child(1) {
+  border: 3px solid var(--primary-color);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.nav-links a:hover:nth-child(1) {
+  background-color: var(--primary-color);
+  color: whitesmoke;
+  border: 3px solid var(--primary-color);
 }
 
 .nav-links a:nth-child(2) {
   background-color: var(--primary-color);
   color: whitesmoke;
-}
-.nav-links a:nth-child(1) {
-  border: 3px solid var(--primary-color);
-  color: var(--primary-color);
-}
-.nav-links a:hover,
-.hero-section a:hover {
-  background-color: #0c0908;
-  color: var(--primary-color);
-  transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
+.nav-links a:hover:nth-child(2) {
+  background-color: var(--primary-color);
+  color: whitesmoke;
+  background-color: #0c0908;
+  color: var(--primary-color);
+}
+
 /* * Main section */
 
 .hero-section a {
+  transition: all 0.3s ease-in-out;
   color: whitesmoke;
   font-weight: 600;
   font-family: "Blinker", sans-serif;
@@ -70,6 +81,12 @@
   padding: 10px 35px;
   border-radius: 50px;
   margin-top: 40px;
+  cursor: pointer;
+}
+
+.hero-section a:hover {
+  background-color: #0c0908;
+  color: var(--primary-color);
 }
 
 .hero-section {
@@ -115,7 +132,7 @@ video {
 .about-section {
   padding: 50px 0;
   text-align: center;
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,7 +144,7 @@ video {
     rgba(220, 230, 255, 0.18) 68%,
     rgba(139, 169, 252, 0.13) 90%,
     rgba(110, 129, 250, 0.13) 100%
-  );
+    );
 }
 
 .about-section h2:nth-child(1) {
@@ -147,13 +164,14 @@ video {
 
 .about-content {
   /* width: 90%; */
+  view-timeline-name: --scroll;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content:space-around;
-  
 }
+
 
 .about-content p {
   font-size: 25px;
@@ -168,6 +186,7 @@ video {
   width: 45%;
   padding: 0 20px;
   letter-spacing: 1px;
+  animation: show 1.5s ease;
 }
 .image-container{
   width: 45%;
@@ -177,5 +196,29 @@ video {
   filter: drop-shadow(0px 10px 5px var(--primary-color));
   width: 100%;
   height: 100%;
-  animation: show 2s ease-in 0s iteration-count direction  normal;
+  animation: drop 1.5s ease;
+  
+}
+
+@keyframes drop {
+  from{
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+}
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
 }
