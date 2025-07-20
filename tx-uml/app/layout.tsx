@@ -1,3 +1,6 @@
+import React from 'react';
+import NewHeader from './components/landingpage/newHeader';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -6,6 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <NewHeader />
         {children}
       </body>
     </html>

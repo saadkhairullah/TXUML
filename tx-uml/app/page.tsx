@@ -9,9 +9,10 @@ import Buttons from './components/landingpage/Buttons';
 
 const landingpage = () => {
   return (
+    <div>
    <div className={styles.wrapper}>
       <div className={styles.fadeIn}>
-        <Header />
+        {/* <Header /> */}
       </div>  
       <div className={styles.fadeIn}>
         <Hero />
@@ -19,6 +20,7 @@ const landingpage = () => {
       <div className={styles.fadeIn}>
         <Buttons />
       </div> 
+    </div>
     </div>
   )
 }

@@ -1,8 +1,8 @@
 .map-container{
 height: 100%;
 display: flex;
-/* overflow: hidden;
-position: absolute; */
+/* overflow: hidden; */
+position: relative;
 
 }
  .mapboxgl-popup {
