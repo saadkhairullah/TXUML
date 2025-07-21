@@ -1,18 +1,19 @@
 import React from "react";
 import ImageLogo from "../assets/images/TXUML-logo.svg";
 import Image from "../assets/images/laptop-img.svg";
+// Use the video file as a static asset by referencing its path directly in the video tag
 import "./page.css";
 import "../index.css"; // Assuming you have a global CSS file for styles
 
 // this is where the about page frontend goes
-const Video = () => {
-  return (
-    <video controls autoPlay muted loop>
-      <source src="../assets/introBg.webm" type="video/webm" />
-      <source src="../assets/introBg.mp4" type="video/mp4" />
-    </video>
-  );
-};
+// const Video = () => {
+//   return (
+//     <video className="video" controls autoPlay muted loop>
+//       <source src="../assets/introBg.webm" type="video/webm" />
+//       <source src="../assets/introBg.mp4" type="video/mp4" />
+//     </video>
+//   );
+// };
 
 const AboutPage = () => {
   return (
@@ -30,7 +31,11 @@ const AboutPage = () => {
 
       <div>
         <div className="hero-section">
-          <Video />
+          <video controls autoPlay muted loop className="video">
+            <source src="/yy.webm" type="video/webm" />
+            <source src="/yy.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="hero-content">
             <h1>
               Unearth the Data
@@ -57,33 +62,6 @@ const AboutPage = () => {
         </div>
       </div>
     </div>
-
-    // <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center',  alignItems: 'center', gap: '3rem' }}>
-    //   <h1 className={styles.headerBox}>About TXUML</h1>
-    //   <div style={{ display: 'flex', gap: '2rem' }}>
-    //     <Image
-    //       src={"/images/tunnel1.png"}
-    //       alt="Underground Mine Tunnel"
-    //       width={240}
-    //       height={320}
-    //       style={{ borderRadius: '4px' }}
-    //     />
-    //     <Image
-    //       src={"/images/minemap.png"}
-    //       alt="Texas Underground Mine Map"
-    //       width={320}
-    //       height={320}
-    //       style={{ borderRadius: '4px' }}
-    //     />
-    //   </div>
-    //   <div>
-    //     <p className={styles.textBox}>
-    //       TXUML is an interactive map that highlights the
-    //       locations of all underground abandoned or active
-    //       coal mines in the state of Texas since the late 1800s.
-    //     </p>
-    //   </div>
-    // </div>
   );
 };
 
