@@ -1,36 +1,40 @@
 'use client';
-import React from 'react';
-import './style.css';
+import React from "react";
+import "./style.css"; // Assuming you have a CSS file for styling
 
-const Signup = () => {
+const signup = () => {
+  // signup page lives inside the two divs
   return (
-    <div className="login-container"> {/* Match login page layout */}
-      <h1 className="form-header">
-        Welcome to <span className="logo">MineApp</span>
-      </h1>
-      <form action="/submit" className="join-form">
-        <h2>
-          <span>Join us </span>to get started
-        </h2>
-        <div className="input-group">
-          <label>Full name</label>
-          <input type="text" />
+    <div>
+      <div className="signin-container">
+        <div className="image-container">
+          <img src="/images/sign_up_pic.jpg" alt="" />
         </div>
-        <div className="input-group">
-          <label>Email</label>
-          <input type="text" />
-        </div>
-        <div className="input-group">
-          <label>Password</label>
-          <input type="password" />
-        </div>
-        <div className="input-group">
-          <button type="submit" className="btn">Join now</button>
-        </div>
-        <a href="/login" className="register">Already have an account? Sign in.</a>
-      </form>
+    <form action="/submit" className="join-form">
+      <h3><span>Join us </span>to get started</h3>
+      <div className="input-group">
+        <label htmlFor="">Username</label>
+        <input type="text" />
+      </div>
+      <div className="input-group">
+        <label htmlFor="">Email</label>
+        <input type="text" />
+      </div>
+      <div className="input-group">
+        <label htmlFor="">Password</label>
+        <input type="password" />
+      </div>
+      <div className="input-group">
+        <button type="submit" className="btn">Join now</button>
+      </div>
+      <a href="" className="register">already have an account ? Sign in.</a>
+
+    </form>
+      </div>
     </div>
   );
 };
 
-export default Signup;
+export default signup;
+
+

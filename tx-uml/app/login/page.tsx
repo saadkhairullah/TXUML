@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React from 'react'
 import './style.css'
 const login = () => {
@@ -7,7 +7,7 @@ const login = () => {
     <div>
       <div className="signin-container">
         <div className="image-container">
-          <img src={Image.src} alt="" />
+          <img src="/images/Sign_in_pic.jpeg"alt="" />
         </div>
         <form action="/submit" className="join-form">
           <h3>
