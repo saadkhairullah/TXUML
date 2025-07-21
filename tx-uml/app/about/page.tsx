@@ -31,9 +31,10 @@ const AboutPage = () => {
 
       <div>
         <div className="hero-section">
+          <div className="overlay"></div>
           <video controls autoPlay muted loop className="video">
-            <source src="/yy.webm" type="video/webm" />
-            <source src="/yy.mp4" type="video/mp4" />
+            <source src="/videos/intro.webm" type="video/webm" />
+            <source src="/videos/intro.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="hero-content">
