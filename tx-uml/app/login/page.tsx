@@ -14,7 +14,7 @@ const login = () => {
             <span>Log in </span>to your account
           </h3>
           <div className="input-group">
-            <label htmlFor="">Email</label>
+            <label htmlFor="">Username</label>
             <input type="text" />
           </div>
           <div className="input-group">
