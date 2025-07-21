@@ -3,23 +3,20 @@
 import React, { useState } from 'react';
 
 const Settings = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [dob, setDob] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log('Submitted:', { firstName, lastName, dob, email });
+    console.log('Submitted:', { username, email, password });
 
-    // Clear all fields filled in the form otherwise I will see it in the Terminal
-    setFirstName('');
-    setLastName('');
-    setDob('');
+    // Clear fields after submission
+    setUsername('');
     setEmail('');
+    setPassword('');
   };
 
-  
   return (
     <div
       style={{
@@ -45,48 +42,22 @@ const Settings = () => {
       >
         <h2>User Settings Page</h2>
         <form onSubmit={handleSubmit}>
+          {/* Username Field */}
           <div style={{ marginBottom: '1rem' }}>
-            <label htmlFor="firstName" style={{ display: 'block', marginBottom: '0.5rem' }}>
-              First Name:
+            <label htmlFor="username" style={{ display: 'block', marginBottom: '0.5rem' }}>
+              Username:
             </label>
             <input
               type="text"
-              id="firstName"
-              name="firstName"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              id="username"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
 
-          <div style={{ marginBottom: '1rem' }}>
-            <label htmlFor="lastName" style={{ display: 'block', marginBottom: '0.5rem' }}>
-              Last Name:
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              style={{ width: '100%', padding: '0.5rem' }}
-            />
-          </div>
-
-          <div style={{ marginBottom: '1rem' }}>
-            <label htmlFor="dob" style={{ display: 'block', marginBottom: '0.5rem' }}>
-              Date of Birth:
-            </label>
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
-              style={{ width: '100%', padding: '0.5rem' }}
-            />
-          </div>
-
+          {/* Email Field */}
           <div style={{ marginBottom: '1rem' }}>
             <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem' }}>
               Email Address:
@@ -97,6 +68,21 @@ const Settings = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              style={{ width: '100%', padding: '0.5rem' }}
+            />
+          </div>
+
+          {/* Password Field */}
+          <div style={{ marginBottom: '1rem' }}>
+            <label htmlFor="password" style={{ display: 'block', marginBottom: '0.5rem' }}>
+              Password:
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
