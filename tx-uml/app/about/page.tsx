@@ -1,9 +1,9 @@
 import React from "react";
-import ImageLogo from "../assets/images/TXUML-logo.svg";
 import Image from "../assets/images/laptop-img.svg";
+import Navbar from "../components/landing-page/navbar";
 // Use the video file as a static asset by referencing its path directly in the video tag
 import "./page.css";
-import "../index.css"; // Assuming you have a global CSS file for styles
+import "../index.css"; 
 
 // this is where the about page frontend goes
 // const Video = () => {
@@ -18,16 +18,8 @@ import "../index.css"; // Assuming you have a global CSS file for styles
 const AboutPage = () => {
   return (
     <div>
-      <nav className="navbar">
-        <a href="" className="logo-name">
-          <img src={ImageLogo.src} alt="TXUML Logo" />
-          <h3>TXUML</h3>
-        </a>
-        <div className="nav-links">
-          <a href="">Log in</a>
-          <a href="">Sign up</a>
-        </div>
-      </nav>
+      
+      <Navbar />
 
       <div>
         <div className="hero-section">
