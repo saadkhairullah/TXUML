@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "../assets/images/laptop-img.svg";
-import Navbar from "../components/landing-page/navbar";
+import Navbar from "../components/landing-page/Navbar";
+import Hero from "../components/landing-page/Hero";
+
 // Use the video file as a static asset by referencing its path directly in the video tag
 import "./page.css";
 import "../index.css"; 
@@ -21,23 +23,7 @@ const AboutPage = () => {
       
       <Navbar />
 
-      <div>
-        <div className="hero-section">
-          <div className="overlay"></div>
-          <video controls autoPlay muted loop className="video">
-            <source src="/videos/intro.webm" type="video/webm" />
-            <source src="/videos/intro.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div className="hero-content">
-            <h1>
-              Unearth the Data
-              <br /> Build with Confidence.
-            </h1>
-            <p>Every Mine Has a Story. We Map Them All, from Depths to Data.</p>
-            <a href="">Get started</a>
-          </div>
-        </div>
+      <Hero />
 
         <div className="about-section">
           <h2>About Us</h2>
@@ -53,7 +39,6 @@ const AboutPage = () => {
           </div>
           <h2>Frequently Asked Questions</h2>
         </div>
-      </div>
     </div>
   );
 };
