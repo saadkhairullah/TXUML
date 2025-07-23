@@ -1,20 +1,47 @@
 "use client";
-import React, { useState } from "react";
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import { toast } from "react-hot-toast";
 import "./style.css";
 
-const Login = () => {
-  // Step 1: Use state for input fields
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export default function LoginPage() {
+  const router = useRouter();
+  const [user, setUser] = React.useState({
+    username: "",
+    password: "",
+  });
 
-  // Step 2: Handle form submission
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [buttonDisabled, setButtonDisabled] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
+
+  useEffect(() => {
+    setButtonDisabled(!(user.username && user.password));
+  }, [user]);
+
+  const onLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  // prevent full page reloading
     e.preventDefault();
-    console.log("Submitted:", { username, password });
 
-    // Step 3: Clear input fields
-    setUsername("");
-    setPassword("");
+  // Step 1: Use state for input fields
+    try {
+      setLoading(true);
+      const response = await axios.post("/api/login", user);
+      console.log("Login Success", response.data);
+      toast.success("Login Success");
+      router.push("/settings");
+    } catch(error: any) {
+      console.log("Login Failed", error.response?.data || error.message);
+      toast.error(error.response?.data?.error || "Login failed");
+    } finally {
+      setLoading(false);
+    }
+  };
+  // Step 2: Handle form submission
+  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setUser((prev) => ({ ...prev, [id]: value }));
   };
 
   return (
@@ -24,7 +51,7 @@ const Login = () => {
           <img src="/images/Sign_in_pic.jpeg" alt="Sign in" />
         </div>
         {/* Step 4: Controlled form with useState */}
-        <form onSubmit={handleSubmit} className="join-form">
+        <form onSubmit={onLogin} className="join-form">
           <h3>
             <span>Log in </span>to your account
           </h3>
@@ -34,8 +61,8 @@ const Login = () => {
             <input
               type="text"
               id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={user.username}
+              onChange={handleSubmit}
             />
           </div>
 
@@ -44,14 +71,14 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={user.password}
+              onChange={handleSubmit}
             />
           </div>
 
           <div className="input-group">
-            <button type="submit" className="btn">
-              Sign in
+            <button type="submit" className="btn" disabled={buttonDisabled || loading}>
+              {loading ? "Logging in..." : "Log in"}
             </button>
           </div>
 
@@ -61,7 +88,6 @@ const Login = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
 
-export default Login;
+}
