@@ -1,44 +1,19 @@
 import React from "react";
-import Image from "../assets/images/laptop-img.svg";
 import Navbar from "../components/landing-page/Navbar";
 import Hero from "../components/landing-page/Hero";
+import About from "../components/landing-page/About";
 
 // Use the video file as a static asset by referencing its path directly in the video tag
 import "./page.css";
 import "../index.css"; 
 
-// this is where the about page frontend goes
-// const Video = () => {
-//   return (
-//     <video className="video" controls autoPlay muted loop>
-//       <source src="../assets/introBg.webm" type="video/webm" />
-//       <source src="../assets/introBg.mp4" type="video/mp4" />
-//     </video>
-//   );
-// };
 
 const AboutPage = () => {
   return (
     <div>
-      
       <Navbar />
-
       <Hero />
-
-        <div className="about-section">
-          <h2>About Us</h2>
-          <div className="about-content">
-            <p>
-              TXUML is an interactive map that highlights the locations of all
-              underground abandoned or active coal mines in the state of Texas
-              since the late 1800s.
-            </p>
-            <div className="image-container">
-              <img src={Image.src} alt="TXUML Logo" />
-            </div>
-          </div>
-          <h2>Frequently Asked Questions</h2>
-        </div>
+      <About />       
     </div>
   );
 };
