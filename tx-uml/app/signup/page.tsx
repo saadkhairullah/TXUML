@@ -113,42 +113,62 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="login-container">
-      <h1 className="form-header">
-        Welcome to <span className="logo">MineApp</span>
-      </h1>
-      <form onSubmit={onSignup} className="join-form">
-        <h2>
-          <span>Join us </span>to get started
-        </h2>
-        <div className="input-group">
-          <label>Full name</label>
-          <input type="text" name="username" value={user.username} onChange={handleChange} />
+    <div>
+      <div className="signin-container">
+        <div className="image-container">
+          <img src="/images/sign_up_pic.jpg" alt="Sign Up" />
         </div>
-        <div className="input-group">
-          <label>Email</label>
-          <input type="email" name="email" value={user.email} onChange={handleChange} />
-        </div>
-        <div className="input-group">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={user.password}
-            onChange={handleChange}
-            minLength={6}
-          />
-        </div>
-        {error && <p className="error-msg">{error}</p>}
-        <div className="input-group">
-          <button type="submit" className="btn" disabled={buttonDisabled || loading}>
-            {loading ? 'Creating Account...' : 'Sign Up'}
-          </button>
-        </div>
-        <a href="/login" className="register">
-          Already have an account? Sign in.
-        </a>
-      </form>
+
+        <form onSubmit={onSignup} className="join-form">
+          <h3><span>Join us </span>to get started</h3>
+
+          <div className="input-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              value={user.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={user.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              minLength={6}
+              required
+            />
+          </div>
+
+          {error && <p className="error-msg">{error}</p>}
+
+          <div className="input-group">
+            <button type="submit" className="btn" disabled={buttonDisabled || loading}>
+              {loading ? "Creating Account..." : "Join now"}
+            </button>
+          </div>
+
+          <a href="/login" className="register">
+            Already have an account? Sign in.
+          </a>
+        </form>
+      </div>
     </div>
   );
 }
