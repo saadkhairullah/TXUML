@@ -1,12 +1,14 @@
 import React from "react";
 import VideoBg from "./VideoBg";
+import styles from "./Hero.module.css";
+
 
 const Hero = () => {
   return (
-    <div className="hero-section">
-      <div className="overlay"></div>
+    <div className={styles.heroSection}>
+      <div className={styles.overlay}></div>
       <VideoBg />
-      <div className="hero-content">
+      <div className={styles.heroContent}>
         <h1>
           Unearth the Data
           <br /> Build with Confidence.
