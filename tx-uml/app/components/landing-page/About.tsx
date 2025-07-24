@@ -3,6 +3,7 @@ import Image from "../../assets/images/laptop-img.svg";
 import MineLink from './MineLink';
 import mine from "../../../public/mine.png";
 import styles from "./About.module.css";
+import Faq from './Faq';
 
 const AboutSection = () => {
   return (
@@ -19,12 +20,13 @@ const AboutSection = () => {
         </div>
       </div>
       <div>
-        <MineLink
+        <Faq/>
+        {/* <MineLink
           imageSrc={mine}
           linkUrl="https://www.rrc.texas.gov/surface-mining/historical-coal-mining/mining-regions-fields-and-sites/"
           altText="Link to mine data source"
           description="Mine Data source"
-        />
+        /> */}
       </div>
     </div>
   );
