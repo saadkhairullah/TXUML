@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "../../assets/images/laptop-img.svg";
+import MineLink from './MineLink';
+import mine from "../../../public/mine.png";
 import styles from "./About.module.css";
 
 const AboutSection = () => {
@@ -15,6 +17,14 @@ const AboutSection = () => {
         <div className={styles.imageContainer}>
           <img src={Image.src} alt="TXUML" />
         </div>
+      </div>
+      <div>
+        <MineLink
+          imageSrc={mine}
+          linkUrl="https://www.rrc.texas.gov/surface-mining/historical-coal-mining/mining-regions-fields-and-sites/"
+          altText="Link to mine data source"
+          description="Mine Data source"
+        />
       </div>
     </div>
   );
