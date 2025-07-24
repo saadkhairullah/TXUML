@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../../assets/images/laptop-img.svg";
+
 
 import styles from "./About.module.css";
 import Faq from './Faq';
@@ -15,7 +15,7 @@ const AboutSection = () => {
           the late 1800s.
         </p>
         <div className={styles.imageContainer}>
-          <img src={Image.src} alt="TXUML" />
+          <img src="/laptop-img.svg" alt="TXUML" />
         </div>
       </div>
       <div>

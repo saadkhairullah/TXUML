@@ -1,5 +1,5 @@
-MONGO_URI=mongodb+srv://team2:<CSE3311Mines!>@cluster3311.rcjbaxx.mongodb.net/
-TOKEN_SECRET=team23311
-DOMAIN=http://localhost:3000
-EMAIL=cseminelocator@gmail.com
-PASSWORD=CSE3311Mines!
+MONGO_URI='mongodb+srv://team2:CSE3311Mines!@cluster3311.rcjbaxx.mongodb.net/'
+TOKEN_SECRET='team23311'
+DOMAIN='http://localhost:3000'
+EMAIL='cseminelocator@gmail.com'
+PASSWORD='CSE3311Mines!'
