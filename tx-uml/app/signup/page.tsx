@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "../assets/images/Sign_up_pic.jpg"; // Adjust the path as necessary
 import "./page.css"; // Assuming you have a CSS file for styling
 
   // signup page lives inside the two divs

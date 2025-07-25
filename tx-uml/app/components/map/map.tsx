@@ -12,6 +12,7 @@ export default function Map() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const pin = useRef<mapboxgl.Marker | null>(null);
+  const [pinCoords, setPinCoords] = useState<[number, number] | null>(null);
 
 
   useEffect(() => {
@@ -134,14 +135,31 @@ map.on('mouseleave', 'mine-point-symbol', () => {
     });
     // outside map.onload function
 
-map.on('click', function (e)  {
+map.on('click', async function (e)  {
 if (pin.current) {
         pin.current.remove(); // Remove the previous pin if it exists
+        setPinCoords(null); // Reset pin coordinates
     }
 pin.current = new mapboxgl.Marker()
         .setLngLat(e.lngLat)
         .addTo(map);
-        console.log('Pin placed at:', e.lngLat);
+
+const coords = e.lngLat.toArray() as [number, number];
+setPinCoords(coords); // Store the coordinates of the pin
+
+        const res = await fetch('/api/pinCoord', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pinCoord: coords }),
+  });
+
+  const data = await res.json();
+  console.log('Nearby mines:', data);
+  let score = 0;
+  data.nearbyMines.forEach(() => {
+    score += 10;
+  });
+  console.log('Score:', score); 
 })
 
     return () => {
