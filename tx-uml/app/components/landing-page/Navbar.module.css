@@ -38,6 +38,7 @@
   border-radius: 50px;
   margin: 0 10px;
   transition: all 0.3s ease-in-out;
+  text-decoration: none;
 }
 .navLinks a:first-child {
   border: 3px solid var(--primary-color);

@@ -5,10 +5,9 @@ import "./page.css"; // Assuming you have a CSS file for styling
 const signup = () => {
   // signup page lives inside the two divs
   return (
-    <div>
       <div className="signin-container">
         <div className="image-container">
-          <img src={Image.src} alt="" />
+          <img src="/Sign_up_pic.jpg" alt="" />
         </div>
     <form action="/submit" className="join-form">
       <h3><span>Join us </span>to get started</h3>
@@ -27,11 +26,10 @@ const signup = () => {
       <div className="input-group">
         <button type="submit" className="btn">Join now</button>
       </div>
-      <a href="" className="register">already have an account ? Sign in.</a>
+      <a href="/login" className="register">already have an account ? Sign in.</a>
 
     </form>
       </div>
-    </div>
   );
 };
 

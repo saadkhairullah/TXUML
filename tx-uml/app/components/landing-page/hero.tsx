@@ -14,7 +14,7 @@ const Hero = () => {
           <br /> Build with Confidence.
         </h1>
         <p>Every Mine Has a Story. We Map Them All, from Depths to Data.</p>
-        <a href="">Get started</a>
+        <a href="/signup">Get started</a>
       </div>
     </div>
   );

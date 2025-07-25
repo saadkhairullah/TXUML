@@ -5,10 +5,10 @@ import "./page.css"; // Assuming you have a CSS file for styling
 const login = () => {
   // signup page lives inside the two divs
   return (
-    <div>
+  
       <div className="signin-container">
         <div className="image-container">
-          <img src={Image.src} alt="" />
+          <img src="/Sign_in_pic.jpeg" alt="" />
         </div>
         <form action="/submit" className="join-form">
           <h3>
@@ -27,12 +27,11 @@ const login = () => {
               Sign in
             </button>
           </div>
-          <a href="" className="register">
+          <a href="/signup" className="register">
             New to TXUML ? Create your account.
           </a>
         </form>
       </div>
-    </div>
   );
 };
 

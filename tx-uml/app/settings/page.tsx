@@ -4,7 +4,7 @@ const Settings = () => {
   return (
     <div
       style={{
-        backgroundImage: 'url("images/Ground.jpg")',
+        backgroundImage: 'url("Ground.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -13,6 +13,7 @@ const Settings = () => {
         fontFamily: 'Arial, sans-serif',
         backdropFilter: 'blur(4px)',
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
+        
       }}
     >
       <div style={{ maxWidth: '500px', margin: '0 auto', backgroundColor: 'white', padding: '2rem', borderRadius: '8px' }}>
