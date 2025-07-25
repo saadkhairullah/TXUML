@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css'
@@ -11,6 +11,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidHh1bWwiLCJhIjoiY21jcG04ZXY5MDdtdjJpcG02OWNnY
 export default function Map() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
+  const pin = useRef<mapboxgl.Marker | null>(null);
 
 
   useEffect(() => {
@@ -26,11 +27,10 @@ export default function Map() {
       zoom: 6.7
     });
 
-    mapRef.current = map; // shortcut for mapRef.current, use map instead
 
     map.scrollZoom.enable();
 
- mapRef.current.on('load', () => {
+ map.on('load', () => {
           map.loadImage(
         'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
         (error, image) => {
@@ -85,7 +85,6 @@ export default function Map() {
       'icon-size': 1
   }
       });
-
       //onclick function that displays popup when you click on a "mine-point-symbol"
       map.on('click', 'mine-point-symbol', (e) => {
    const feature = e.features?.[0]
@@ -135,6 +134,15 @@ map.on('mouseleave', 'mine-point-symbol', () => {
     });
     // outside map.onload function
 
+map.on('click', function (e)  {
+if (pin.current) {
+        pin.current.remove(); // Remove the previous pin if it exists
+    }
+pin.current = new mapboxgl.Marker()
+        .setLngLat(e.lngLat)
+        .addTo(map);
+        console.log('Pin placed at:', e.lngLat);
+})
 
     return () => {
       map.remove();

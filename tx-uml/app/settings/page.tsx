@@ -1,6 +1,22 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 const Settings = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    console.log('Submitted:', { username, email, password });
+
+    // Clear fields after submission
+    setUsername('');
+    setEmail('');
+    setPassword('');
+  };
+
   return (
     <div
       style={{
@@ -16,45 +32,33 @@ const Settings = () => {
         
       }}
     >
-      <div style={{ maxWidth: '500px', margin: '0 auto', backgroundColor: 'white', padding: '2rem', borderRadius: '8px' }}>
+      <div
+        style={{
+          maxWidth: '500px',
+          margin: '0 auto',
+          backgroundColor: 'white',
+          padding: '2rem',
+          borderRadius: '8px',
+        }}
+      >
         <h2>User Settings Page</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
+          {/* Username Field */}
           <div style={{ marginBottom: '1rem' }}>
-            <label htmlFor="firstName" style={{ display: 'block', marginBottom: '0.5rem' }}>
-              First Name:
+            <label htmlFor="username" style={{ display: 'block', marginBottom: '0.5rem' }}>
+              Username:
             </label>
             <input
               type="text"
-              id="firstName"
-              name="firstName"
+              id="username"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
 
-          <div style={{ marginBottom: '1rem' }}>
-            <label htmlFor="lastName" style={{ display: 'block', marginBottom: '0.5rem' }}>
-              Last Name:
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              style={{ width: '100%', padding: '0.5rem' }}
-            />
-          </div>
-
-          <div style={{ marginBottom: '1rem' }}>
-            <label htmlFor="dob" style={{ display: 'block', marginBottom: '0.5rem' }}>
-              Date of Birth:
-            </label>
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              style={{ width: '100%', padding: '0.5rem' }}
-            />
-          </div>
-
+          {/* Email Field */}
           <div style={{ marginBottom: '1rem' }}>
             <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem' }}>
               Email Address:
@@ -63,6 +67,23 @@ const Settings = () => {
               type="email"
               id="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={{ width: '100%', padding: '0.5rem' }}
+            />
+          </div>
+
+          {/* Password Field */}
+          <div style={{ marginBottom: '1rem' }}>
+            <label htmlFor="password" style={{ display: 'block', marginBottom: '0.5rem' }}>
+              Password:
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>

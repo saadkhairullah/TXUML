@@ -4,6 +4,7 @@ import Legend from '../components/map/legend'
 
 const mapPage = () => {
   return (
+    
     <div style ={{height: '100vh'}}> 
     <Map/>
     <Legend/>
