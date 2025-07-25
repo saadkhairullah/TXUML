@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
+
 import "./page.css";
+
 
 const Login = () => {
   // Step 1: Use state for input fields
@@ -21,7 +23,9 @@ const Login = () => {
     <div>
       <div className="signin-container">
         <div className="image-container">
+
           <img src="/Sign_in_pic.jpeg" alt="Sign in" />
+
         </div>
         {/* Step 4: Controlled form with useState */}
         <form onSubmit={handleSubmit} className="join-form">
@@ -64,4 +68,6 @@ const Login = () => {
   );
 };
 
+
 export default Login;
+

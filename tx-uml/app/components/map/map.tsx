@@ -150,7 +150,9 @@ setPinCoords(coords); // Store the coordinates of the pin
         const res = await fetch('/api/pinCoord', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
+
     body: JSON.stringify({ pinCoord: coords }),
+
   });
 
   const data = await res.json();
