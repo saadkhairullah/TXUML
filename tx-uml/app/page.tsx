@@ -1,28 +1,19 @@
-import React from 'react';
-// import Image from 'next/image';
-import Header from './components/landingpage/Header';
-import Hero from './components/landingpage/Hero';
-// import Footer from './Footer';
-import styles from './page.module.css';
-import Buttons from './components/landingpage/Buttons';
+import React from "react";
+import Hero from "./components/landing-page/hero";
+import About from "./components/landing-page/About";
+
+// Use the video file as a static asset by referencing its path directly in the video tag
+import "./page.css";
 
 
-const landingpage = () => {
+
+const AboutPage = () => {
   return (
     <div>
-   <div className={styles.wrapper}>
-      <div className={styles.fadeIn}>
-        {/* <Header /> */}
-      </div>  
-      <div className={styles.fadeIn}>
-        <Hero />
-      </div> 
-      <div className={styles.fadeIn}>
-        <Buttons />
-      </div> 
+      <Hero />
+      <About />       
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default landingpage;
+export default AboutPage;
