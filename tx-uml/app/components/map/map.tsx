@@ -151,7 +151,7 @@ setPinCoords(coords); // Store the coordinates of the pin
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
 
-    body: JSON.stringify({ pinCoord: coords }),
+    body: JSON.stringify({ pinCoords: coords }),
 
   });
 
