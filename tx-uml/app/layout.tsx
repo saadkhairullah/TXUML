@@ -1,5 +1,6 @@
-import React from 'react';
-import NewHeader from './components/landingpage/newHeader';
+import React from "react";
+import Navbar from "./components/landing-page/navbar";
+import "./global.css"; // Import global styles
 
 export default function RootLayout({
   children,
@@ -9,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NewHeader />
+        <Navbar />
         {children}
       </body>
     </html>

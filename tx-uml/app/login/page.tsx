@@ -48,7 +48,9 @@ export default function LoginPage() {
     <div>
       <div className="signin-container">
         <div className="image-container">
-          <img src="/images/Sign_in_pic.jpeg" alt="Sign in" />
+
+          <img src="/Sign_in_pic.jpeg" alt="Sign in" />
+
         </div>
         {/* Step 4: Controlled form with useState */}
         <form onSubmit={onLogin} className="join-form">
