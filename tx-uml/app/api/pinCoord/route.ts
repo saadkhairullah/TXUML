@@ -24,6 +24,9 @@ export async function POST(req: Request) {
       },
     },
   });
-
-  return NextResponse.json({ nearbyMines });
+  let score = 0;
+  nearbyMines.forEach(() => {
+    score += 10; // Example scoring logic
+  });
+  return NextResponse.json({ nearbyMines, score }, { status: 200 });
 }
