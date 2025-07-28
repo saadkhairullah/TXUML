@@ -71,7 +71,7 @@ const Settings = () => {
         }
 
         .input-group input {
-          width: 150%;
+          width: 100%;
           padding: 10px;
           border-radius: 5px;
           font-size: 16px;
