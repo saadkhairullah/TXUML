@@ -33,7 +33,7 @@ const Settings = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-image: url("images/Ground.jpg");
+          background-image: url("/Ground.jpg");
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -71,7 +71,7 @@ const Settings = () => {
         }
 
         .input-group input {
-          width: 100%;
+          width: 150%;
           padding: 10px;
           border-radius: 5px;
           font-size: 16px;
