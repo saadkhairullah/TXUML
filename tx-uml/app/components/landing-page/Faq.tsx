@@ -1,5 +1,5 @@
-'use client';
-import MineLink from './MineLink';
+"use client";
+import MineLink from "./MineLink";
 import mine from "../../../public/mine.png";
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
@@ -15,20 +15,26 @@ const Questions = ({ questions, answers }: QuestionsProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <div onClick={() => setIsOpen(!isOpen)} className={styles.questionContainer}>
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className={styles.questionContainer}
+      >
         <article className={styles.question}>
           <h3>{questions}</h3>
           <div>
-          {!isOpen && (
-            <button className={styles.button} onClick={() => setIsOpen(true)}>
-              <FaPlus />
-            </button>
-          )}
-          {isOpen && (
-            <button className={styles.button}  onClick={() => setIsOpen(false)}>
-              <FaMinus />
-            </button>
-          )}
+            {!isOpen && (
+              <button className={styles.button} onClick={() => setIsOpen(true)}>
+                <FaPlus />
+              </button>
+            )}
+            {isOpen && (
+              <button
+                className={styles.button}
+                onClick={() => setIsOpen(false)}
+              >
+                <FaMinus />
+              </button>
+            )}
           </div>
         </article>
         <article className={`${isOpen && styles.answer}`}>
@@ -54,9 +60,9 @@ const Faq = () => {
             • Mine status (active, inactive, sealed, unknown)
             <br />
             • Mining eras (with historical overlays)
-            <br />
-            • Strata layers, mining regions, and field boundaries Site-level
-            &emsp;metadata (e.g., coordinates, known operator)
+            <br />• Strata layers, mining regions, and field boundaries
+            Site-level &emsp; &emsp; &emsp; &emsp; &emsp;metadata (e.g.,
+            coordinates, known operator)
           </span>
         }
       />
@@ -65,17 +71,17 @@ const Faq = () => {
         answers={
           <span>
             • Developers and Landowners: Use it for evaluating land before
-            &emsp;construction or development.
+            &emsp; &emsp; &emsp; &emsp;construction or development.
             <br />
-            • City Planners & Engineers: Use it for urban planning and
-            &emsp;zoning decisions.
+            • City Planners & Engineers: Use it for urban planning and zoning
+            &emsp; &emsp; &emsp;decisions.
             <br />
             • Homebuyers & Real Estate Agents: Use it for checking property
-            &emsp;history and ground safety <br />
+            &emsp; &emsp; &emsp; &emsp;history and ground safety <br />
             • Government & Regulatory Agencies: Use it for mine safety
-            &emsp;inspection coordination <br />
-            • Researchers & Historians: Use it for studying historical coal
-            &emsp;mining trends and regions
+            inspection &emsp; &emsp;coordination <br />• Researchers &
+            Historians: Use it for studying historical coal mining &emsp;
+            &emsp;trends and regions
           </span>
         }
       />
@@ -86,8 +92,7 @@ const Faq = () => {
             <span>
               • Export reports for documentation and environmental due
               diligence.
-              <br />
-              • Access historical mine maps where available.
+              <br />• Access historical mine maps where available.
             </span>
             <MineLink
               imageSrc={mine}
@@ -102,8 +107,8 @@ const Faq = () => {
         questions=" What risks are associated with underground mines?"
         answers={
           <span>
-            Abandoned underground mines can pose risks such as: ground subsidence,
-            gas emissions or water seepage
+            Abandoned underground mines can pose risks such as: ground
+            subsidence, gas emissions or water seepage
           </span>
         }
       />

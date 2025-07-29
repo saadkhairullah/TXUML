@@ -6,9 +6,10 @@
 html, body, #next__ {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
-  /* height: 100%; */
-  /* width: 100%; */
+  box-sizing: border-box;
+  height: 100%; 
+  width: 100%; 
+  overflow-x: hidden;
   --primary-color: #3a3dfc;
   --text-color: #221f1f;
   --text-color2: #696565;
@@ -17,3 +18,18 @@ html, body, #next__ {
   line-height: 1.5;
 }
 
+
+
+
+
+
+
+
+
+/* background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(220, 230, 255, 0.18) 68%,
+    rgba(139, 169, 252, 0.13) 90%,
+    rgba(110, 129, 250, 0.13) 100%
+    ); */

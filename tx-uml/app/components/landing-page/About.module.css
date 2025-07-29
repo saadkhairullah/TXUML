@@ -37,11 +37,12 @@
   display: flex;
   align-items: center;
   justify-content:space-around;
+  width: 80%;
 }
 
 .aboutContent p {
-  font-size: 35px;
-  color: lightblue;
+  font-size: 30px;
+  color: whitesmoke;
   line-height: 1.6;
   margin-bottom: 10px;
   font-weight: 600;
