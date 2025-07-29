@@ -42,7 +42,7 @@ const Questions = ({ questions, answers }: QuestionsProps) => {
 const Faq = () => {
   return (
     <div>
-      <h2 className={styles.title}>Frequently Asked Questions</h2>
+      <h3 className={styles.title}>Frequently Asked Questions</h3>
       <Questions
         questions="What kind of data is available on the map?"
         answers={
