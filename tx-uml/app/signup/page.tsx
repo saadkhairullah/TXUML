@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import './page.css';
+import './page.css';
 
 export default function SignupPage() {
   const router = useRouter();

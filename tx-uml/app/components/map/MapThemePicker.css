@@ -1,0 +1,45 @@
+.theme-picker {
+  position: absolute;
+  top: 200px;
+left: 24px;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 140px;
+  font-family: sans-serif;
+  z-index: 999;
+}
+
+.theme-picker-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.theme-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.theme-option {
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.theme-option:hover {
+  background-color: #e0e0e0;
+}
+
+.theme-option.selected {
+  background-color: #cce5ff;
+  font-weight: bold;
+}
