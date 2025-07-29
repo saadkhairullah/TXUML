@@ -37,6 +37,7 @@ left: 24px;
 
 .theme-option:hover {
   background-color: #e0e0e0;
+  opacity: 0.5;
 }
 
 .theme-option.selected {

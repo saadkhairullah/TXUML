@@ -5,6 +5,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css'
 import { useMapTheme } from '../../context/MapThemeContext'; // <- use your path
+import ProgressBar from './ProgressBar';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidHh1bWwiLCJhIjoiY21jcG04ZXY5MDdtdjJpcG02OWNnYmRxNSJ9.AqdDCt8d6tkB1o2YxLK89w';
@@ -15,6 +16,7 @@ export default function Map() {
   const pin = useRef<mapboxgl.Marker | null>(null);
   const [pinCoords, setPinCoords] = useState<[number, number] | null>(null);
    const { mapStyle } = useMapTheme();
+   const [score, setScore] = useState<number | null>(null);
 
 
   useEffect(() => {
@@ -161,6 +163,8 @@ setPinCoords(coords); // Store the coordinates of the pin
   if (res.ok) {
     console.log('Nearby mines:', data.nearbyMines);
     console.log('Score:', data.score);
+    setScore(data.score); // <-- Save score in state
+    
   }
 });
 
@@ -168,8 +172,13 @@ setPinCoords(coords); // Store the coordinates of the pin
       map.remove();
     };
   }, [mapStyle]);
-  
-  return  <div className='map-container' ref={mapContainerRef} />;
- 
-  
+
+  return (
+  <>
+    <div className='map-container' ref={mapContainerRef} />
+    <ProgressBar score={score} />
+  </>
+);
+
+
 }
