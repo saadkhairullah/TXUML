@@ -24,6 +24,14 @@ export async function POST(req: Request) {
       },
     },
   });
-
-  return NextResponse.json({ nearbyMines });
+  var score: number = 0;
+  nearbyMines.forEach(() => {
+    if (score < 100) {
+      score += 10; // Example scoring logic
+    }
+    if (score > 100) {
+      score = 100; // Cap score at 100
+    }
+  });
+  return NextResponse.json({ nearbyMines, score }, { status: 200 });
 }

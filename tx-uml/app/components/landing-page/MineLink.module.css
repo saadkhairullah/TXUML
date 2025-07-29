@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid transparent;
+  padding: .5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  max-width: 150px;
+}
+
+.container:hover {
+  border-color: #007bff;
+  background-color: #000000;
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
