@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import './style.css';
+import './page.css';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -46,7 +46,7 @@ export default function SignupPage() {
     <div>
       <div className="signin-container">
         <div className="image-container">
-          <img src="/images/sign_up_pic.jpg" alt="Sign Up" />
+          <img src="/Sign_up_pic.jpg" alt="" />
         </div>
 
         <form onSubmit={onSignup} className="join-form">
