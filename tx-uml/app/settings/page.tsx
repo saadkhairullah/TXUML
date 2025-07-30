@@ -12,6 +12,7 @@ export default function SettingsPage() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [data, setData] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,24 +25,30 @@ export default function SettingsPage() {
   };
 
   const handleLogout = async () => {
-  try {
-    const res = await fetch('/api/logout', {
-      method: 'GET',
-      credentials: 'include',
-    });
+    try {
+      const res = await fetch('/api/logout', {
+        method: 'GET',
+        credentials: 'include',
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (res.ok) {
-      toast.success(data.message || 'Logout successful');
-      router.push('/login');
-    } else {
-      toast.error(data.error || 'Logout failed');
+      if (res.ok) {
+        toast.success(data.message || 'Logout successful');
+        router.push('/login');
+      } else {
+        toast.error(data.error || 'Logout failed');
+      }
+    } catch (error: any) {
+      toast.error('Logout failed: ' + error.message);
     }
-  } catch (error: any) {
-    toast.error('Logout failed: ' + error.message);
+  };
+
+  const getUserDetails = async () => {
+    const res = await axios.get('/api/me');
+    console.log(res.data); 
+    setData(res.data.data._id)
   }
-};
 
 
   return (
@@ -153,6 +160,8 @@ export default function SettingsPage() {
       <div className="settings-container">
         <div className="settings-box">
           <h2>User Settings Page</h2>
+
+          {/* <h2>{data === '' ? "Nothing" : <Link href={`/settings/${data}`}></Link>}</h2> */}
 
           <form onSubmit={handleSubmit}>
             <div className="input-group">

@@ -3,29 +3,31 @@ import { NextRequest } from "next/server";
 
 // Logic Part
 export function middleware(request: NextRequest) {
-    const path = request.nextUrl.pathname
-    const isPublicPath = path === '/login' || path === '/signup' || path === '/'
+    const path = request.nextUrl.pathname;
 
-    const token = request.cookies.get('token')?.value || ''
+    const isPublicPath = path === '/' || path === '/login' || path === '/signup';
+    const token = request.cookies.get('token')?.value || '';
 
-    // Access to public pages
-    if(isPublicPath && token) {
-        return NextResponse.redirect(new URL('/', request.nextUrl))
+    // If logged in and trying to access login or signup, redirect to home
+    if ((path === '/login' || path === '/signup') && token) {
+        return NextResponse.redirect(new URL('/', request.nextUrl));
     }
 
-    // Login to access non public pages
-    if(!isPublicPath && !token) {
-        return NextResponse.redirect(new URL('/login', request.nextUrl))
-
+    // If not logged in and trying to access protected page
+    if (!isPublicPath && !token) {
+        return NextResponse.redirect(new URL('/login', request.nextUrl));
     }
+
+    // Allow request to proceed
+    return NextResponse.next();
 }
 
-// Matching Part (what part you want to match and run the middleware)
+// Matching Path (what part you want to match and run the middleware)
 export const config = {
     matcher: [
-        '/',
-        '/settings',
-        '/login',
-        '/signup',
+        '/',            //public landing
+        '/settings',    //protected
+        '/login',       //public
+        '/signup',      //public
     ],
 }
