@@ -33,7 +33,7 @@ const Settings = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-image: url("images/Ground.jpg");
+          background-image: url("/Ground.jpg");
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;

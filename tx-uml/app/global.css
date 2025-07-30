@@ -1,4 +1,8 @@
-:root {
+html, body, #__next {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   --primary-color: #3a3dfc;
   --text-color: #221f1f;
   --text-color2: #696565;

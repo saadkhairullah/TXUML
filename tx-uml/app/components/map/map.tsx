@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.css'
+import { useMapTheme } from '../../context/MapThemeContext'; // <- use your path
+import ProgressBar from './ProgressBar';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidHh1bWwiLCJhIjoiY21jcG04ZXY5MDdtdjJpcG02OWNnYmRxNSJ9.AqdDCt8d6tkB1o2YxLK89w';
@@ -13,6 +15,8 @@ export default function Map() {
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const pin = useRef<mapboxgl.Marker | null>(null);
   const [pinCoords, setPinCoords] = useState<[number, number] | null>(null);
+   const { mapStyle } = useMapTheme();
+   const [score, setScore] = useState<number | null>(null);
 
 
   useEffect(() => {
@@ -22,7 +26,7 @@ export default function Map() {
     // intializing the map centered and bounded on texas
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: 'mapbox://styles/mapbox/streets-v12?optimize=true',
+      style: mapStyle,
       center: [-99.0003, 31.0006],
       maxBounds: [[-106.6168, 25.8419],[-93.5074, 36.5008]],
       zoom: 6.7
@@ -156,20 +160,25 @@ setPinCoords(coords); // Store the coordinates of the pin
   });
 
   const data = await res.json();
-  console.log('Nearby mines:', data);
-  let score = 0;
-  data.nearbyMines.forEach(() => {
-    score += 10;
-  });
-  console.log('Score:', score); 
-})
+  if (res.ok) {
+    console.log('Nearby mines:', data.nearbyMines);
+    console.log('Score:', data.score);
+    setScore(data.score); // <-- Save score in state
+    
+  }
+});
 
     return () => {
       map.remove();
     };
-  }, []);
-  
-  return  <div className='map-container' ref={mapContainerRef} />;
- 
-  
+  }, [mapStyle]);
+
+  return (
+  <>
+    <div className='map-container' ref={mapContainerRef} />
+    <ProgressBar score={score} />
+  </>
+);
+
+
 }
