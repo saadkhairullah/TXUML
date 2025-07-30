@@ -44,6 +44,7 @@ export default function SettingsPage() {
     }
   };
 
+  // Test getting user data from token
   const getUserDetails = async () => {
     const res = await axios.get('/api/me');
     console.log(res.data); 
@@ -161,7 +162,8 @@ export default function SettingsPage() {
         <div className="settings-box">
           <h2>User Settings Page</h2>
 
-          {/* <h2>{data === '' ? "Nothing" : <Link href={`/settings/${data}`}></Link>}</h2> */}
+          {/* Test Getting User Token Data */}
+          {/* <h2>{data === '' ? "Nothing" : <Link href={`/settings/${data}`}>{data}</Link>}</h2> */} 
 
           <form onSubmit={handleSubmit}>
             <div className="input-group">
@@ -202,11 +204,16 @@ export default function SettingsPage() {
             </button>
           </form>
 
+          {/* Test Logout button */}
           <button onClick={handleLogout} className="btn logout-btn">
             Logout
           </button>
         </div>
       </div>
+      {/* Test Getting User Data button */}
+      {/* <button onClick={getUserDetails} className="btn">
+        Get User Data
+      </button> */}
     </>
   );
 }
