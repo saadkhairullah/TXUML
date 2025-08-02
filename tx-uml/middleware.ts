@@ -15,7 +15,7 @@ export function middleware(request: NextRequest) {
 
     // If not logged in and trying to access protected page
     if (!isPublicPath && !token) {
-        return NextResponse.redirect(new URL('/', request.nextUrl));
+        return NextResponse.redirect(new URL('/signup', request.nextUrl));
     }
 
     // Allow request to proceed

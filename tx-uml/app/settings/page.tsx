@@ -4,25 +4,35 @@ import axios from 'axios';
 import Link from 'next/link';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useState, useEffect, use } from 'react';
 
-export default function SettingsPage() {
+export default function SettingsPage(params: any) {
   const router = useRouter();
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [data, setData] = useState('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Submitted:', { username, email, password });
-    toast.success('User info updated (placeholder logic)');
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    setUsername('');
-    setEmail('');
-    setPassword('');
-  };
+  try {
+    const res = await axios.put("/api/update", {
+      username,
+      email,
+      password,
+    });
+
+    if (res.status === 200) {
+      toast.success("User info updated");
+      setPassword("*********"); // reset display
+    } else {
+      toast.error("Update failed");
+    }
+  } catch (error: any) {
+    toast.error("Error updating user: " + error.response?.data?.error || error.message);
+  }
+};
 
   const handleLogout = async () => {
     try {
@@ -48,8 +58,14 @@ export default function SettingsPage() {
   const getUserDetails = async () => {
     const res = await axios.get('/api/me');
     console.log(res.data); 
-    setData(res.data.data._id)
+     setUsername(res.data.data.username);
+    setEmail(res.data.data.email);
+    setPassword("*********");
   }
+  useEffect(() => {
+    // Fetch user data when the component mounts
+    getUserDetails();
+  }, []);
 
 
   return (
@@ -162,8 +178,6 @@ export default function SettingsPage() {
         <div className="settings-box">
           <h2>User Settings Page</h2>
 
-          {/* Test Getting User Token Data */}
-          {/* <h2>{data === '' ? "Nothing" : <Link href={`/settings/${data}`}>{data}</Link>}</h2> */} 
 
           <form onSubmit={handleSubmit}>
             <div className="input-group">
@@ -210,10 +224,6 @@ export default function SettingsPage() {
           </button>
         </div>
       </div>
-      {/* Test Getting User Data button */}
-      {/* <button onClick={getUserDetails} className="btn">
-        Get User Data
-      </button> */}
     </>
   );
 }
