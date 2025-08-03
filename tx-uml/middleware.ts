@@ -25,6 +25,7 @@ export function middleware(request: NextRequest) {
 // Matching Path (what part you want to match and run the middleware)
 export const config = {
     matcher: [
+        '/mapPage', //protected
         '/settings',    //protected
         '/login',       //public
         '/signup',      //public

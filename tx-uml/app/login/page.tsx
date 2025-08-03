@@ -5,10 +5,12 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { toast } from "react-hot-toast";
 import "./page.css";
+import { useUser } from "@/app/context/userContext";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [user, setUser] = React.useState({
+    const { setUser } = useUser();
+  const [user, createUser] = React.useState({
     username: "",
     password: "",
   });
@@ -28,9 +30,11 @@ export default function LoginPage() {
     try {
       setLoading(true);
       const response = await axios.post("/api/login", user);
+      setUser(response.data.data); // Update user context
       console.log("Login Success", response.data);
       toast.success("Login Success");
-      router.push("/settings");
+      router.refresh(); // Only useful if you're using Server Components and App Router
+      router.push("/mapPage");
     } catch(error: any) {
       console.log("Login Failed", error.response?.data || error.message);
       toast.error(error.response?.data?.error || "Login failed");
@@ -41,7 +45,7 @@ export default function LoginPage() {
   // Step 2: Handle form submission
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    setUser((prev) => ({ ...prev, [id]: value }));
+    createUser((prev) => ({ ...prev, [id]: value }));
   };
 
   return (

@@ -47,7 +47,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         toast.success(data.message || 'Logout successful');
         router.push('/login');
       } else {
-        toast.error(data.error || 'Logout failed');
+        toast.error(data.errosettingsr || 'Logout failed');
       }
     } catch (error: any) {
       toast.error('Logout failed: ' + error.message);

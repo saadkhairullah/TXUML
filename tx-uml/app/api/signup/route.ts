@@ -45,7 +45,13 @@ const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
 const response = NextResponse.json({
     message: "User Created",
     success: true,
-    savedUser
+    data: {
+        id: savedUser._id,
+        username: savedUser.username,
+        email: savedUser.email,
+        isAdmin: savedUser.isAdmin,
+        isVerified: savedUser.isVerified,
+    }
 });
 
 response.cookies.set("token", token, {
