@@ -3,10 +3,15 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import './page.css';
+import './page.css';
+import { useUser } from '@/app/context/userContext';
+import toast from 'react-hot-toast';
+
 
 export default function SignupPage() {
+  const { setUser } = useUser();
   const router = useRouter();
-  const [user, setUser] = React.useState({
+  const [user, createUser] = React.useState({
     email: '',
     password: '',
     username: '',
@@ -28,8 +33,14 @@ export default function SignupPage() {
     setLoading(true);
     try {
       const response = await axios.post('/api/signup', user);
-      console.log(response.data);
-      router.push('/login');
+     setUser(response.data.data);
+toast.success('Signup Success');
+setLoading(false);
+
+// Small delay so Navbar re-renders with correct context before navigation
+setTimeout(() => {
+  router.push('/mapPage');
+}, 100);
     } catch (err: any) {
       setError(err?.response?.data?.error || 'Signup failed');
     } finally {
@@ -39,14 +50,14 @@ export default function SignupPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUser(prev => ({ ...prev, [name]: value }));
+    createUser(prev => ({ ...prev, [name]: value }));
   };
 
   return (
     <div>
       <div className="signin-container">
         <div className="image-container">
-          <img src="/sign_up_pic.jpg" alt="Sign Up" />
+          <img src="/Sign_up_pic.jpg" alt="" />
         </div>
 
         <form onSubmit={onSignup} className="join-form">

@@ -48,6 +48,14 @@
   background-color: #8792f0;
   color: whitesmoke;
 }
+.navLinks a:nth-child(2) {
+  border: 3px solid var(--primary-color);
+  color: var(--primary-color);
+}
+.navLinks a:nth-child(2):hover {
+  background-color: #8792f0;
+  color: whitesmoke;
+}
 .navLinks a:last-child {
   background-color: var(--primary-color);
   color: whitesmoke;

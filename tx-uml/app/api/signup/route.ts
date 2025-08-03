@@ -2,6 +2,7 @@ import {connect} from "../../dbConfig/dbConfig";
 import User from "../../models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from 'bcryptjs';
+import jwt from "jsonwebtoken"; 
 
 connect()
 
@@ -28,16 +29,36 @@ export async function POST(request: NextRequest){
             email,
             password: hashedPassword
         })
+const savedUser = await newUser.save();
+console.log(savedUser);
 
-        const savedUser = await newUser.save()
-        console.log(savedUser);
+const tokenData = {
+    id: savedUser._id,           // ✅ Correct object
+    username: savedUser.username,
+    email: savedUser.email
+};
 
-        return NextResponse.json({
-            message: "User Created",
-            success: true,
-            savedUser
-        })
+const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
+    expiresIn: "1h"
+});
 
+const response = NextResponse.json({
+    message: "User Created",
+    success: true,
+    data: {
+        id: savedUser._id,
+        username: savedUser.username,
+        email: savedUser.email,
+        isAdmin: savedUser.isAdmin,
+        isVerified: savedUser.isVerified,
+    }
+});
+
+response.cookies.set("token", token, {
+    httpOnly: true
+});
+
+return response;
         
 
     } catch (error: any) {
