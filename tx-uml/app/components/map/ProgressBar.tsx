@@ -37,26 +37,31 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ score, message }) => {
       message = ''
       message += "❓No clear data available for this region";
       return "transparent";
+    }   
+     if (score === 0) {
+      message = ''
+      message += "✅ Area is clear of any known underground coal mines";
+      return "transparent";
     }
     if (score <= 20) {
     
-      message = "✅ Area is clear of any known underground coal mines";
+      message = "☝️ Region has 1-2 mines in the vicinity of 10km radius";
       return "green";
     }
     if (score <= 40) {
-      message = "☝️ Region has been validated as structurally stable";
-      return "lightgreen";
+      message = "☝️ Region has 3-4 mines in the vicinity of 10km radius";
+      return "orange";
     }
     if (score <= 60) {
-      message = "🚦Borderline zone — close to a known mining boundary";
-      return "yellow";
-    }
-    if (score <= 85) {
-     
-      message = "⚠️ Failed safety check — proximity to mining site";
+      message = "🚦Region consists of many mines in the vicinity of 10km radius";
       return "orange";
-    } if (score > 85) {
-      message = "🛑 Warning ! Abandoned mine detected in this region";
+    }
+    if (score <= 90) {
+     
+      message = "⚠️ Region consists of many mines in the vicinity of 10km radius";
+      return "orange";
+    } if (score > 90) {
+      message = "🛑 Warning ! This area is extremely dense in underground mines";
       return "red";
     } else {
       message = "";

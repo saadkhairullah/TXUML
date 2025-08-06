@@ -34,25 +34,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   }
 };
 
-  const handleLogout = async () => {
-    try {
-      const res = await fetch('/api/logout', {
-        method: 'GET',
-        credentials: 'include',
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        toast.success(data.message || 'Logout successful');
-        router.push('/login');
-      } else {
-        toast.error(data.errosettingsr || 'Logout failed');
-      }
-    } catch (error: any) {
-      toast.error('Logout failed: ' + error.message);
-    }
-  };
 
   // Test getting user data from token
   const getUserDetails = async () => {
@@ -217,11 +198,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               Submit
             </button>
           </form>
-
-          {/* Test Logout button */}
-          <button onClick={handleLogout} className="btn logout-btn">
-            Logout
-          </button>
         </div>
       </div>
     </>
