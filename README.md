@@ -35,6 +35,34 @@ TXUML (Texas Underground Mine Locator) is a modern web application designed to h
 - 🌙 **Dynamic Theming**: Light/dark mode toggle for map styling
 
 ---
+# 🛠️ Getting Started
 
-## 📁 Project Structure
+## ❗Prerequisite
+
+Please make sure you have Node.js v18 or higher installed, for installation guide visit https://nodejs.org/en
+
+## 1. Clone the repo
+```bash
+git clone https://github.com/your-username/TXUML.git
+cd TXUML/tx-uml
+```
+---
+## 2. Install dependencies
+```bash
+npm install
+```
+## 3. Fill in the values in the .env.example file, then rename to .env
+```bash
+MONGO_URI=
+TOKEN_SECRET=
+EMAIL=
+PASSWORD=
+NEXT_PUBLIC_MAPBOX_API_KEY=
+```
+### 🔐 For developer keys, contact Saad Khairullah, project owner.
+
+## 4. Run the development server
+```bash
+npm run dev
+```
 
