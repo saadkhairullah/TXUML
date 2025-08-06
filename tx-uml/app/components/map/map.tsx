@@ -8,7 +8,7 @@ import { useMapTheme } from '../../context/MapThemeContext'; // <- use your path
 import ProgressBar from './ProgressBar';
 
 
-mapboxgl.accessToken = 'pk.eyJ1IjoidHh1bWwiLCJhIjoiY21jcG04ZXY5MDdtdjJpcG02OWNnYmRxNSJ9.AqdDCt8d6tkB1o2YxLK89w';
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;
 
 export default function Map() {
   const mapContainerRef = useRef<HTMLDivElement>(null);

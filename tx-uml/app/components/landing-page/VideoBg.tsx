@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./VideoBg.module.css";
 
+
 const VideoBg = () => {
   return (
     <video controls autoPlay muted loop className={styles.video}>

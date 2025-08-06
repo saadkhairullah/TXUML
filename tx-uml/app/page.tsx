@@ -5,10 +5,14 @@ import About from "./components/landing-page/About";
 
 const AboutPage = () => {
   return (
-    <div className="wrapper">
-      <Hero />
-      <About />
-    </div>
+    <main className="wrapper">
+      <section id="hero">
+        <Hero />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+    </main>
   );
 };
 
