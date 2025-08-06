@@ -55,6 +55,7 @@ npm install
 ```bash
 MONGO_URI=
 TOKEN_SECRET=
+DOMAIN=http://localhost:3000
 EMAIL=
 PASSWORD=
 NEXT_PUBLIC_MAPBOX_API_KEY=
@@ -65,4 +66,5 @@ NEXT_PUBLIC_MAPBOX_API_KEY=
 ```bash
 npm run dev
 ```
+
 
