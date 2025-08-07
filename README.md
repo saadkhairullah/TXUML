@@ -9,7 +9,7 @@ TXUML (Texas Underground Mine Locator) is a modern web application designed to h
 - **Framework**: [Next.js](https://nextjs.org/) (App Router, TypeScript, Server Actions)
 - **Frontend**:
   - React 19
-  - Tailwind CSS
+  - CSS
   - Mapbox GL JS for interactive mapping
 - **Backend**:
   - MongoDB via Mongoose for data storage
@@ -66,5 +66,6 @@ NEXT_PUBLIC_MAPBOX_API_KEY=
 ```bash
 npm run dev
 ```
+
 
 
